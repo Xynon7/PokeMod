@@ -1,0 +1,9 @@
+author = Unown
+version = v0.4
+displayName = PokeMod
+homepage = http://forums.terraria.org/index.php?threads/pokemod.40542/
+hideCode = false
+hideResources = false
+includeSource = true
+dllReferences = Newtonsoft.Json
+buildIgnore = *.sln
