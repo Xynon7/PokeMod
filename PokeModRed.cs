@@ -6,10 +6,11 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using PokeModRed.NPCs;
 
 namespace PokeModRed
 {
-	public class PokeModRed : Mod
+	public partial class PokeModRed : Mod
 	{
 		public override void SetModInfo(out string name, ref ModProperties properties)
 		{
@@ -48,7 +49,11 @@ namespace PokeModRed
 			{
 				PokedexCommand(args);
 			}
-		}
+            if (command == "gift")
+            {
+                GiftCommand(args);
+            }
+        }
 		
 		private void PokedexCommand(string[] args)
 		{
@@ -67,7 +72,6 @@ namespace PokeModRed
 					Main.NewText("No Pokemon found by that ID");
 				}
 			}
-			
 		}
 	}
 }

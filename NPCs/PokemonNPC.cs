@@ -55,6 +55,7 @@ namespace PokeModRed.NPCs
         public virtual int shoot {get{return -1;}}
         public virtual float speed { get { return (float)Spe*2 / (float)level; } }
         public virtual byte aiMode { get { return running; } }
+
         public int maxHP
 		{
 			get {
@@ -274,12 +275,12 @@ namespace PokeModRed.NPCs
 			SpAIV = (byte)rnd.Next(0,31);
 			SpDIV = (byte)rnd.Next(0,31);
 			SpeIV = (byte)rnd.Next(0,31);
-			HPEV = (byte)rnd.Next(0,31);
-			AtkEV = (byte)rnd.Next(0,31);
-			DefEV = (byte)rnd.Next(0,31);
-			SpAEV = (byte)rnd.Next(0,31);
-			SpDEV = (byte)rnd.Next(0,31);
-			SpeEV = (byte)rnd.Next(0,31);
+			HPEV = 0;
+            AtkEV = 0;
+            DefEV = 0;
+            SpAEV = 0;
+            SpDEV = 0;
+            SpeEV = 0;
 			int spawnLevel = 1;
 			int spawnFactor = 2;
 			if (NPC.downedBoss1){spawnLevel+=spawnFactor;}

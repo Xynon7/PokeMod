@@ -6,4 +6,4 @@ hideCode = true
 hideResources = true
 includeSource = false
 dllReferences = Newtonsoft.Json
-buildIgnore = *.sln
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, .gitattributes, .gitignore

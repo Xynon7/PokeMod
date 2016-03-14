@@ -6,7 +6,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using PokeModRed;
-using PokeModRed.Projectiles.Minions;
 using PokeModRed.NPCs;
 
 namespace PokeModRed.Items.Weapons
@@ -262,7 +261,7 @@ namespace PokeModRed.Items.Weapons
 		{
 			PokePlayer modPlayer = (PokePlayer)player.GetModPlayer(mod, "PokePlayer");
 			// need to put a limiter on this, max 1 per item
-			if (player.HasBuff(mod.BuffType(item.name+"Buff")) < 0 && player.itemTime == 0 && player.itemAnimation > 0 && player.controlUseItem)
+			if (player.HasBuff(mod.BuffType(item.name + "Buff")) < 0 && player.itemTime == 0 && player.itemAnimation > 0 && player.controlUseItem)
 			{
 				if (Main.netMode != 1)
 				{
@@ -487,7 +486,7 @@ namespace PokeModRed.Items.Weapons
 			string evolveName; 
 			evolveName = val.Pokemon;
 			Main.NewText("What? " +item.name +" is evolving!");
-			Main.NewText("Congratulations! Your " +item.name +" evolved in to " +evolveName +"!");
+			Main.NewText("Congratulations! Your " +item.name + " evolved in to " +evolveName +"!");
 			int itemRef = Item.NewItem((int)Main.player[item.owner].position.X, (int)Main.player[item.owner].position.Y, 1, 1, mod.ItemType(evolveName+"Pokeball"), 1, false, 0, false, false);
 			PokemonWeapon newItem;
 			newItem = Main.item[itemRef].modItem as PokemonWeapon;
@@ -506,9 +505,9 @@ namespace PokeModRed.Items.Weapons
 			newItem.SpDEV = this.SpDEV;
 			newItem.SpeIV = this.SpeIV;
 			newItem.SpeEV = this.SpeEV;
-			if (Main.player[item.owner].HasBuff(mod.BuffType(item.name+"Buff")) > -1)
+			if (Main.player[item.owner].HasBuff(mod.BuffType(item.name+ "Buff")) > -1)
 			{
-				Main.player[item.owner].DelBuff(Main.player[item.owner].HasBuff(mod.BuffType(item.name+"Buff")));
+				Main.player[item.owner].DelBuff(Main.player[item.owner].HasBuff(mod.BuffType(item.name+ "Buff")));
 			}
 			newItem.SetToolTip();
 			this.item.consumable = true;
