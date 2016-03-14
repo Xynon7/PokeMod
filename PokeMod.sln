@@ -1,0 +1,215 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79487458-2437-4DBB-9C24-96A0DF29729D}"
+	ProjectSection(SolutionItems) = preProject
+		build.txt = build.txt
+		changelog.txt = changelog.txt
+		description.txt = description.txt
+		IPokedexEntry.cs = IPokedexEntry.cs
+		Pokedex.cs = Pokedex.cs
+		PokedexEntry.cs = PokedexEntry.cs
+		PokedexEntryConverter.cs = PokedexEntryConverter.cs
+		PokedexJSON.cs = PokedexJSON.cs
+		PokeModRed.cs = PokeModRed.cs
+		PokePlayer.cs = PokePlayer.cs
+		PokeWorld.cs = PokeWorld.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Buffs", "Buffs", "{2051E02A-ABD1-444B-927F-92BDB1D5E37A}"
+	ProjectSection(SolutionItems) = preProject
+		Buffs\Beedrill.cs = Buffs\Beedrill.cs
+		Buffs\Blastoise.cs = Buffs\Blastoise.cs
+		Buffs\Bulbasaur.cs = Buffs\Bulbasaur.cs
+		Buffs\Butterfree.cs = Buffs\Butterfree.cs
+		Buffs\Caterpie.cs = Buffs\Caterpie.cs
+		Buffs\Charizard.cs = Buffs\Charizard.cs
+		Buffs\Charmander.cs = Buffs\Charmander.cs
+		Buffs\Charmeleon.cs = Buffs\Charmeleon.cs
+		Buffs\Ivysaur.cs = Buffs\Ivysaur.cs
+		Buffs\Kakuna.cs = Buffs\Kakuna.cs
+		Buffs\Metapod.cs = Buffs\Metapod.cs
+		Buffs\Pidgeot.cs = Buffs\Pidgeot.cs
+		Buffs\Pidgeotto.cs = Buffs\Pidgeotto.cs
+		Buffs\Pidgey.cs = Buffs\Pidgey.cs
+		Buffs\PokeBuff.cs = Buffs\PokeBuff.cs
+		Buffs\Rattata.cs = Buffs\Rattata.cs
+		Buffs\Squirtle.cs = Buffs\Squirtle.cs
+		Buffs\Venusaur.cs = Buffs\Venusaur.cs
+		Buffs\Wartortle.cs = Buffs\Wartortle.cs
+		Buffs\Weedle.cs = Buffs\Weedle.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{A15ED06A-FCCA-44C7-9967-11F4F8DA5122}"
+	ProjectSection(SolutionItems) = preProject
+		Items\Pokecase.cs = Items\Pokecase.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Armor", "Armor", "{6E54A79A-0B1C-44D2-A24B-FED32B6C9AEC}"
+	ProjectSection(SolutionItems) = preProject
+		Items\Armor\RedCap.cs = Items\Armor\RedCap.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Weapons", "Weapons", "{F83FD56E-7B00-4303-8980-C8B0E8CBC58A}"
+	ProjectSection(SolutionItems) = preProject
+		Items\Weapons\BeedrillPokeball.cs = Items\Weapons\BeedrillPokeball.cs
+		Items\Weapons\BlastoisePokeball.cs = Items\Weapons\BlastoisePokeball.cs
+		Items\Weapons\BulbasaurPokeball.cs = Items\Weapons\BulbasaurPokeball.cs
+		Items\Weapons\ButterfreePokeball.cs = Items\Weapons\ButterfreePokeball.cs
+		Items\Weapons\CaterpiePokeball.cs = Items\Weapons\CaterpiePokeball.cs
+		Items\Weapons\CharizardPokeball.cs = Items\Weapons\CharizardPokeball.cs
+		Items\Weapons\CharmanderPokeball.cs = Items\Weapons\CharmanderPokeball.cs
+		Items\Weapons\CharmeleonPokeball.cs = Items\Weapons\CharmeleonPokeball.cs
+		Items\Weapons\IvysaurPokeball.cs = Items\Weapons\IvysaurPokeball.cs
+		Items\Weapons\KakunaPokeball.cs = Items\Weapons\KakunaPokeball.cs
+		Items\Weapons\MetapodPokeball.cs = Items\Weapons\MetapodPokeball.cs
+		Items\Weapons\PidgeotPokeball.cs = Items\Weapons\PidgeotPokeball.cs
+		Items\Weapons\PidgeottoPokeball.cs = Items\Weapons\PidgeottoPokeball.cs
+		Items\Weapons\PidgeyPokeball.cs = Items\Weapons\PidgeyPokeball.cs
+		Items\Weapons\PokemonWeapon.cs = Items\Weapons\PokemonWeapon.cs
+		Items\Weapons\RaticatePokeball.cs = Items\Weapons\RaticatePokeball.cs
+		Items\Weapons\RattataPokeball.cs = Items\Weapons\RattataPokeball.cs
+		Items\Weapons\SquirtlePokeball.cs = Items\Weapons\SquirtlePokeball.cs
+		Items\Weapons\VenusaurPokeball.cs = Items\Weapons\VenusaurPokeball.cs
+		Items\Weapons\WartortlePokeball.cs = Items\Weapons\WartortlePokeball.cs
+		Items\Weapons\WeedlePokeball.cs = Items\Weapons\WeedlePokeball.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pokeballs", "Pokeballs", "{B14C8A3D-3E0C-47B0-AAA1-0F6E6E1C1DAD}"
+	ProjectSection(SolutionItems) = preProject
+		Items\Weapons\Pokeballs\GreatBall.cs = Items\Weapons\Pokeballs\GreatBall.cs
+		Items\Weapons\Pokeballs\Masterball.cs = Items\Weapons\Pokeballs\Masterball.cs
+		Items\Weapons\Pokeballs\PokeBall.cs = Items\Weapons\Pokeballs\PokeBall.cs
+		Items\Weapons\Pokeballs\UltraBall.cs = Items\Weapons\Pokeballs\UltraBall.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NPCs", "NPCs", "{5E689718-8A42-402B-B3EB-FB84F5D01686}"
+	ProjectSection(SolutionItems) = preProject
+		NPCs\Beedrill.cs = NPCs\Beedrill.cs
+		NPCs\Blastoise.cs = NPCs\Blastoise.cs
+		NPCs\Bulbasaur.cs = NPCs\Bulbasaur.cs
+		NPCs\Butterfree.cs = NPCs\Butterfree.cs
+		NPCs\Caterpie.cs = NPCs\Caterpie.cs
+		NPCs\Charizard.cs = NPCs\Charizard.cs
+		NPCs\Charmander.cs = NPCs\Charmander.cs
+		NPCs\Charmeleon.cs = NPCs\Charmeleon.cs
+		NPCs\Ivysaur.cs = NPCs\Ivysaur.cs
+		NPCs\Kakuna.cs = NPCs\Kakuna.cs
+		NPCs\Metapod.cs = NPCs\Metapod.cs
+		NPCs\Pidgeot.cs = NPCs\Pidgeot.cs
+		NPCs\Pidgeotto.cs = NPCs\Pidgeotto.cs
+		NPCs\Pidgey.cs = NPCs\Pidgey.cs
+		NPCs\PokeGlobalNPC.cs = NPCs\PokeGlobalNPC.cs
+		NPCs\PokemonNPC.cs = NPCs\PokemonNPC.cs
+		NPCs\Raticate.cs = NPCs\Raticate.cs
+		NPCs\Rattata.cs = NPCs\Rattata.cs
+		NPCs\Squirtle.cs = NPCs\Squirtle.cs
+		NPCs\Venusaur.cs = NPCs\Venusaur.cs
+		NPCs\Wartortle.cs = NPCs\Wartortle.cs
+		NPCs\Weedle.cs = NPCs\Weedle.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projectiles", "Projectiles", "{6634DF05-DF10-438A-A7B7-E74808DEACFF}"
+	ProjectSection(SolutionItems) = preProject
+		Projectiles\GreatBall.cs = Projectiles\GreatBall.cs
+		Projectiles\MasterBall.cs = Projectiles\MasterBall.cs
+		Projectiles\PokeBall.cs = Projectiles\PokeBall.cs
+		Projectiles\PokeballProjectile.cs = Projectiles\PokeballProjectile.cs
+		Projectiles\UltraBall.cs = Projectiles\UltraBall.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Minions", "Minions", "{5448646F-C404-433B-BB29-AC9B11984764}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PokemonProjectiles", "PokemonProjectiles", "{728AC1F6-C730-47AC-82FB-612512010FBE}"
+	ProjectSection(SolutionItems) = preProject
+		Projectiles\Minions\PokemonProjectiles\Dummy.cs = Projectiles\Minions\PokemonProjectiles\Dummy.cs
+		Projectiles\Minions\PokemonProjectiles\Ember.cs = Projectiles\Minions\PokemonProjectiles\Ember.cs
+		Projectiles\Minions\PokemonProjectiles\PokemonProjectile.cs = Projectiles\Minions\PokemonProjectiles\PokemonProjectile.cs
+		Projectiles\Minions\PokemonProjectiles\Thundershock.cs = Projectiles\Minions\PokemonProjectiles\Thundershock.cs
+		Projectiles\Minions\PokemonProjectiles\VineWhip.cs = Projectiles\Minions\PokemonProjectiles\VineWhip.cs
+		Projectiles\Minions\PokemonProjectiles\WaterGun.cs = Projectiles\Minions\PokemonProjectiles\WaterGun.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sounds", "Sounds", "{1137A3D4-E9D2-4D79-B83C-F6F784402B56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Custom", "Custom", "{2CB799DC-F6CF-4A7A-AF58-CE90BD286F1A}"
+	ProjectSection(SolutionItems) = preProject
+		Sounds\Custom\ExpFull.cs = Sounds\Custom\ExpFull.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{31D90C8A-C59C-4C50-9268-30930167F2F0}"
+	ProjectSection(SolutionItems) = preProject
+		Sounds\Item\id1.cs = Sounds\Item\id1.cs
+		Sounds\Item\id10.cs = Sounds\Item\id10.cs
+		Sounds\Item\id11.cs = Sounds\Item\id11.cs
+		Sounds\Item\id12.cs = Sounds\Item\id12.cs
+		Sounds\Item\id13.cs = Sounds\Item\id13.cs
+		Sounds\Item\id14.cs = Sounds\Item\id14.cs
+		Sounds\Item\id15.cs = Sounds\Item\id15.cs
+		Sounds\Item\id16.cs = Sounds\Item\id16.cs
+		Sounds\Item\id17.cs = Sounds\Item\id17.cs
+		Sounds\Item\id18.cs = Sounds\Item\id18.cs
+		Sounds\Item\id19.cs = Sounds\Item\id19.cs
+		Sounds\Item\id2.cs = Sounds\Item\id2.cs
+		Sounds\Item\id20.cs = Sounds\Item\id20.cs
+		Sounds\Item\id3.cs = Sounds\Item\id3.cs
+		Sounds\Item\id4.cs = Sounds\Item\id4.cs
+		Sounds\Item\id5.cs = Sounds\Item\id5.cs
+		Sounds\Item\id6.cs = Sounds\Item\id6.cs
+		Sounds\Item\id7.cs = Sounds\Item\id7.cs
+		Sounds\Item\id8.cs = Sounds\Item\id8.cs
+		Sounds\Item\id9.cs = Sounds\Item\id9.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NPCHit", "NPCHit", "{661A9C05-02A7-4B30-98BA-F352691426AE}"
+	ProjectSection(SolutionItems) = preProject
+		Sounds\NPCHit\NormalDamage.cs = Sounds\NPCHit\NormalDamage.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NPCKilled", "NPCKilled", "{38B81D2E-3CA0-45E6-933C-B42B5C6A75CA}"
+	ProjectSection(SolutionItems) = preProject
+		Sounds\NPCKilled\id1.cs = Sounds\NPCKilled\id1.cs
+		Sounds\NPCKilled\id10.cs = Sounds\NPCKilled\id10.cs
+		Sounds\NPCKilled\id11.cs = Sounds\NPCKilled\id11.cs
+		Sounds\NPCKilled\id12.cs = Sounds\NPCKilled\id12.cs
+		Sounds\NPCKilled\id13.cs = Sounds\NPCKilled\id13.cs
+		Sounds\NPCKilled\id14.cs = Sounds\NPCKilled\id14.cs
+		Sounds\NPCKilled\id15.cs = Sounds\NPCKilled\id15.cs
+		Sounds\NPCKilled\id16.cs = Sounds\NPCKilled\id16.cs
+		Sounds\NPCKilled\id17.cs = Sounds\NPCKilled\id17.cs
+		Sounds\NPCKilled\id18.cs = Sounds\NPCKilled\id18.cs
+		Sounds\NPCKilled\id19.cs = Sounds\NPCKilled\id19.cs
+		Sounds\NPCKilled\id2.cs = Sounds\NPCKilled\id2.cs
+		Sounds\NPCKilled\id20.cs = Sounds\NPCKilled\id20.cs
+		Sounds\NPCKilled\id3.cs = Sounds\NPCKilled\id3.cs
+		Sounds\NPCKilled\id4.cs = Sounds\NPCKilled\id4.cs
+		Sounds\NPCKilled\id5.cs = Sounds\NPCKilled\id5.cs
+		Sounds\NPCKilled\id6.cs = Sounds\NPCKilled\id6.cs
+		Sounds\NPCKilled\id7.cs = Sounds\NPCKilled\id7.cs
+		Sounds\NPCKilled\id8.cs = Sounds\NPCKilled\id8.cs
+		Sounds\NPCKilled\id9.cs = Sounds\NPCKilled\id9.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2051E02A-ABD1-444B-927F-92BDB1D5E37A} = {79487458-2437-4DBB-9C24-96A0DF29729D}
+		{A15ED06A-FCCA-44C7-9967-11F4F8DA5122} = {79487458-2437-4DBB-9C24-96A0DF29729D}
+		{6E54A79A-0B1C-44D2-A24B-FED32B6C9AEC} = {A15ED06A-FCCA-44C7-9967-11F4F8DA5122}
+		{F83FD56E-7B00-4303-8980-C8B0E8CBC58A} = {A15ED06A-FCCA-44C7-9967-11F4F8DA5122}
+		{B14C8A3D-3E0C-47B0-AAA1-0F6E6E1C1DAD} = {F83FD56E-7B00-4303-8980-C8B0E8CBC58A}
+		{5E689718-8A42-402B-B3EB-FB84F5D01686} = {79487458-2437-4DBB-9C24-96A0DF29729D}
+		{6634DF05-DF10-438A-A7B7-E74808DEACFF} = {79487458-2437-4DBB-9C24-96A0DF29729D}
+		{5448646F-C404-433B-BB29-AC9B11984764} = {6634DF05-DF10-438A-A7B7-E74808DEACFF}
+		{728AC1F6-C730-47AC-82FB-612512010FBE} = {5448646F-C404-433B-BB29-AC9B11984764}
+		{1137A3D4-E9D2-4D79-B83C-F6F784402B56} = {79487458-2437-4DBB-9C24-96A0DF29729D}
+		{2CB799DC-F6CF-4A7A-AF58-CE90BD286F1A} = {1137A3D4-E9D2-4D79-B83C-F6F784402B56}
+		{31D90C8A-C59C-4C50-9268-30930167F2F0} = {1137A3D4-E9D2-4D79-B83C-F6F784402B56}
+		{661A9C05-02A7-4B30-98BA-F352691426AE} = {1137A3D4-E9D2-4D79-B83C-F6F784402B56}
+		{38B81D2E-3CA0-45E6-933C-B42B5C6A75CA} = {1137A3D4-E9D2-4D79-B83C-F6F784402B56}
+	EndGlobalSection
+EndGlobal
