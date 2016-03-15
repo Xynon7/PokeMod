@@ -968,7 +968,10 @@ namespace PokeModRed.NPCs
 		// Acts as a multiplier to reduce or increase all Pokemon spawns
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			if (catchRate > 235)
+            if (PokeModRed.pokeSpawns == 3)
+            {
+                return 0f;
+            } else if (catchRate > 235)
 			{
 				return ((float)catchRate/255f)/16f;
 			} else if (catchRate <= 235 && catchRate >= 190)
