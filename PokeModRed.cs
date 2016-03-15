@@ -12,7 +12,11 @@ namespace PokeModRed
 {
 	public partial class PokeModRed : Mod
 	{
-		public override void SetModInfo(out string name, ref ModProperties properties)
+        public static byte pokeSpawns = 1;
+        public static IDictionary<int, float> originalSpawnPool;
+        private double pressedSpawnToggleHotKeyTime;
+
+        public override void SetModInfo(out string name, ref ModProperties properties)
 		{
 			name = "PokeModRed";
 			properties.Autoload = true;
@@ -23,7 +27,8 @@ namespace PokeModRed
 		public override void Load()
 		{
 			Pokedex.DoNothing();
-		}
+            RegisterHotKey("Activate/Deactivate Pokemon Spawns", "P");
+        }
 		
 		public override void ChatInput(string text)
 		{
@@ -49,13 +54,41 @@ namespace PokeModRed
 			{
 				PokedexCommand(args);
 			}
+            /*// Not sure what your command here will do, but I am commenting it out for texting everything else for now.
             if (command == "gift")
             {
                 GiftCommand(args);
             }
+            */
         }
-		
-		private void PokedexCommand(string[] args)
+
+        public override void HotKeyPressed(string name)
+        {
+            if (name == "Activate/Deactivate Pokemon Spawns")
+            {
+                if(Math.Abs(Main.time - pressedSpawnToggleHotKeyTime) > 60)
+                {
+                    pressedSpawnToggleHotKeyTime = Main.time;
+                    if (pokeSpawns == 1)
+                    {
+                        pokeSpawns = 2;
+                        Main.NewText("Only Mod NPCs Spawn");
+                    }
+                    else if (pokeSpawns == 2)
+                    {
+                        pokeSpawns = 3;
+                        Main.NewText("Only Normal NPCs Spawn");
+                    }
+                    else if (pokeSpawns == 3)
+                    {
+                        pokeSpawns = 1;
+                        Main.NewText("All NPCs Spawn");
+                    }
+                }
+            }
+        }
+
+        private void PokedexCommand(string[] args)
 		{
 		int id;
 			if (args.Length == 0 || !Int32.TryParse(args[0], out id))

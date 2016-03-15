@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PokeModRed1</RootNamespace>
     <AssemblyName>PokeModRed1</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,9 +45,9 @@
     <Reference Include="Terraria">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
     </Reference>
-	<Reference Include="Microsoft.Xna.Framework" />
-	<Reference Include="Microsoft.Xna.Framework.Game" />
-	<Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buffs\ArbokBuff.cs" />
@@ -97,7 +103,6 @@
     <Compile Include="Buffs\WartortleBuff.cs" />
     <Compile Include="Buffs\WeedleBuff.cs" />
     <Compile Include="Buffs\WigglytuffBuff.cs" />
-    <Compile Include="Buffs\XynomDratiniBuff.cs" />
     <Compile Include="Buffs\ZubatBuff.cs" />
     <Compile Include="IPokedexEntry.cs" />
     <Compile Include="Items\Armor\RedCap.cs" />
@@ -158,7 +163,6 @@
     <Compile Include="Items\Weapons\WartortlePokeball.cs" />
     <Compile Include="Items\Weapons\WeedlePokeball.cs" />
     <Compile Include="Items\Weapons\WigglytuffPokeball.cs" />
-    <Compile Include="Items\Weapons\XynomDratiniPokeball.cs" />
     <Compile Include="Items\Weapons\ZubatPokeball.cs" />
     <Compile Include="NPCs\Arbok.cs" />
     <Compile Include="NPCs\Beedrill.cs" />
@@ -214,14 +218,12 @@
     <Compile Include="NPCs\Wartortle.cs" />
     <Compile Include="NPCs\Weedle.cs" />
     <Compile Include="NPCs\Wigglytuff.cs" />
-    <Compile Include="NPCs\XynomDratini.cs" />
     <Compile Include="NPCs\Zubat.cs" />
     <Compile Include="Pokedex.cs" />
     <Compile Include="PokedexEntry.cs" />
     <Compile Include="PokedexEntryConverter.cs" />
     <Compile Include="PokedexJSON.cs" />
     <Compile Include="PokeModRed.cs" />
-    <Compile Include="PokeModRed\Properties\AssemblyInfo.cs" />
     <Compile Include="PokePlayer.cs" />
     <Compile Include="PokeWorld.cs" />
     <Compile Include="Projectiles\GreatBall.cs" />
@@ -236,8 +238,6 @@
     <Compile Include="Projectiles\PokeBall.cs" />
     <Compile Include="Projectiles\PokeballProjectile.cs" />
     <Compile Include="Projectiles\UltraBall.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecretPokeModRed.cs" />
     <Compile Include="Sounds\Custom\ExpFull.cs" />
     <Compile Include="Sounds\Item\id1.cs" />
     <Compile Include="Sounds\Item\id10.cs" />
@@ -401,7 +401,6 @@
     <Content Include="Buffs\WartortleBuff.png" />
     <Content Include="Buffs\WeedleBuff.png" />
     <Content Include="Buffs\WigglytuffBuff.png" />
-    <Content Include="Buffs\XynomDratiniBuff.png" />
     <Content Include="Buffs\ZubatBuff.png" />
     <Content Include="build.txt" />
     <Content Include="changelog.txt" />
@@ -465,7 +464,6 @@
     <Content Include="Items\Weapons\WartortlePokeball.png" />
     <Content Include="Items\Weapons\WeedlePokeball.png" />
     <Content Include="Items\Weapons\WigglytuffPokeball.png" />
-    <Content Include="Items\Weapons\XynomDratiniPokeball.png" />
     <Content Include="Items\Weapons\ZubatPokeball.png" />
     <Content Include="NPCs\Arbok.png" />
     <Content Include="NPCs\Beedrill.png" />
@@ -520,9 +518,7 @@
     <Content Include="NPCs\Wartortle.png" />
     <Content Include="NPCs\Weedle.png" />
     <Content Include="NPCs\Wigglytuff.png" />
-    <Content Include="NPCs\XynomDratini.png" />
     <Content Include="NPCs\Zubat.png" />
-    <Content Include="PokeModRed\PokeModRed.csproj" />
     <Content Include="Projectiles\GreatBall.png" />
     <Content Include="Projectiles\MasterBall.png" />
     <Content Include="Projectiles\Minions\PokemonProjectiles\Ember.png" />
@@ -645,8 +641,10 @@
   <ItemGroup>
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
+    <None Include="app.config" />
     <None Include="LICENSE" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
     <None Include="PokeModRed\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
   </ItemGroup>
   <ItemGroup>
@@ -654,10 +652,14 @@
     <Folder Include=".vs\" />
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
+    <Folder Include="NPCs\Pokemon\" />
+    <Folder Include="NPCs\Trainers\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="PokeModRed\bin\Debug\" />
     <Folder Include="PokeModRed\bin\Release\" />
     <Folder Include="PokeModRed\obj\Debug\TempPE\" />
+    <Folder Include="PokeModRed\Properties\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

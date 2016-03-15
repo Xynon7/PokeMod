@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -110,6 +111,30 @@ namespace PokeModRed.NPCs
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("RedCap"));
                 nextSlot++;
+            }
+        }
+
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+            PokeModRed.originalSpawnPool = pool;
+            
+            List<int> keys = new List<int>(pool.Keys);
+            foreach (int key in keys)
+            {
+                ModNPC modNPC = NPCLoader.GetNPC(key);
+                if (modNPC == null) // if the ModNPC returned is empty it is a vanilla NPC
+                {
+                    if (PokeModRed.pokeSpawns == 2)
+                    {
+                        //edit the value of pool at [key]
+                        pool[key] = 0f;
+                    }
+                    else if (PokeModRed.pokeSpawns == 3 || PokeModRed.pokeSpawns == 1)
+                    {
+                        //edit the value of pool at [key]
+                        pool[key] = PokeModRed.originalSpawnPool[key];
+                    }
+                }
             }
         }
     }
