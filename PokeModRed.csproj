@@ -643,22 +643,13 @@
     <None Include=".gitignore" />
     <None Include="app.config" />
     <None Include="LICENSE" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
-    <None Include="PokeModRed\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\" />
     <Folder Include=".vs\" />
-    <Folder Include="bin\Debug\" />
-    <Folder Include="bin\Release\" />
     <Folder Include="NPCs\Pokemon\" />
     <Folder Include="NPCs\Trainers\" />
-    <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="PokeModRed\bin\Debug\" />
-    <Folder Include="PokeModRed\bin\Release\" />
-    <Folder Include="PokeModRed\obj\Debug\TempPE\" />
-    <Folder Include="PokeModRed\Properties\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
