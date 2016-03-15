@@ -8,7 +8,7 @@ namespace PokeModRed.NPCs
 	public class Arbok : PokemonNPC
 	{	
 		public override float id {get{return 24.0f;}}
-		
+
 		public override void SetDefaults()
 		{
 			base.SetDefaults();
@@ -20,7 +20,7 @@ namespace PokeModRed.NPCs
 
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return spawnInfo.spawnTileY < Main.rockLayer && Main.dayTime ? 1f * base.CanSpawn(spawnInfo): 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && Main.dayTime ? 1f * base.CanSpawn(spawnInfo) : 0f;
 		}
 	}
 }
