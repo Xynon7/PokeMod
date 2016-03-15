@@ -12,3 +12,5 @@ XynomDratiniBuff.png
 
 # Visual Studio user options file
 .vs\*
+.vs\PokeModRed\v14\*
+.suo
