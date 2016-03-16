@@ -54,12 +54,10 @@ namespace PokeModRed
 			{
 				PokedexCommand(args);
 			}
-            /*// Not sure what your command here will do, but I am commenting it out for texting everything else for now.
             if (command == "gift")
             {
                 GiftCommand(args);
             }
-            */
         }
 
         public override void HotKeyPressed(string name)

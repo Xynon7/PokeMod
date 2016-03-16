@@ -56,8 +56,8 @@ namespace PokeModRed.NPCs
 				pokemonNPC = target.modNPC as PokemonNPC;
 				if (pokemonNPC != null)
 				{
-					npc.StrikeNPC(target.damage, 1.0f, target.direction);
-					if (npc.life <= 0)
+                    npc.StrikeNPC(target.damage, 1.0f, target.direction);
+                    if (npc.life <= 0)
 					{
 						damage = 0; // at most will reduce the damage to 1, since it will not ever deal 0 damage
 					}
