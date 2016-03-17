@@ -257,16 +257,22 @@ namespace PokeModRed.NPCs
 				return list;
 			}
 		}
+		public string Name
+		{
+			get{
+				PokedexEntry val;
+				if (Pokedex.pokedex.TryGetValue(id, out val))
+				{
+					return val.Pokemon;
+				} else {
+					return "";
+				}
+			}
+		}		
 		
 		public override void SetDefaults()
 		{				
-			PokedexEntry val;
-			if (Pokedex.pokedex.TryGetValue(id, out val))
-			{
-				npc.name = val.Pokemon;
-			} else {
-				npc.name = "";
-			}
+			npc.name = Name;
 			Random rnd = new Random();
 			nature = (byte)rnd.Next(1,25);
 			HPIV = (byte)rnd.Next(0,31);
@@ -295,10 +301,10 @@ namespace PokeModRed.NPCs
 			if (NPC.downedGolemBoss){spawnLevel+=spawnFactor;}
 			if (NPC.downedAncientCultist){spawnLevel+=spawnFactor;}			
 			level = (byte)rnd.Next(spawnLevel,spawnLevel+4);
-			npc.displayName = npc.name;
-			//npc.displayName = "Lvl " +level.ToString() +" " +npc.name; //WORKS BUT MAKES DEBUGGING WITH /npc DIFFICULT AS YOU NEED TO TYPE /npc Lvl # Caterpie TO GET A CATERPIE
+			//npc.displayName = npc.name;
+			npc.displayName = "Lvl " +level.ToString() +" " +npc.name; //WORKS BUT MAKES DEBUGGING WITH /npc DIFFICULT AS YOU NEED TO TYPE /npc Lvl # Caterpie TO GET A CATERPIE
 			npc.friendly = true;
-			npc.damage = Atk;
+            npc.damage = Atk;
 			npc.defense = Def;
 			npc.lifeMax = maxHP;
 			npc.life = maxHP;
@@ -345,7 +351,7 @@ namespace PokeModRed.NPCs
                 npc.defense = Def;
                 npc.lifeMax = maxHP;
                 npc.life = maxHP;
-                Main.player[npc.releaseOwner].AddBuff(mod.BuffType(npc.name+"Buff"), 3600);
+                Main.player[npc.releaseOwner].AddBuff(mod.BuffType(Name+"Buff"), 3600);
                 set = true;
             }
 			if (!set && npc.releaseOwner == 255)
@@ -453,16 +459,6 @@ namespace PokeModRed.NPCs
 
             Vector2 myDirection;
             float distanceTo;
-            if (npc.friendly)
-            {
-                myDirection = pCenter - npc.Center;
-                distanceTo = myDirection.Length();
-                // if the distance is too great, just instant teleport to the player
-                if (distanceTo > 1000f)
-                {
-                    npc.Center = pCenter;
-                }
-            }
             //if you have a target and you are at ai[0] state 0f, aka ready and not currently fleeing back to npc.releaseOwner
             if (target && npc.ai[0] == 0f)
 			{
@@ -488,6 +484,11 @@ namespace PokeModRed.NPCs
                     int num = 1;
                     myDirection = pCenter - npc.Center;
                     distanceTo = myDirection.Length();
+                    // if the distance is too great, just instant teleport to the player
+                    if (distanceTo > 1000f)
+                    {
+                        npc.Center = pCenter;
+                    }
                     npc.ai[1] = 3600f;
                     npc.netUpdate = true;
                     if (distanceTo > 48f)
@@ -596,117 +597,105 @@ namespace PokeModRed.NPCs
             // JUMP GAPS
             if (aiMode == running)
             {
-                bool flag5 = true;
-                if (npc.velocity.X == 0f)
+                int xPos = (int)((npc.position.X + (float)(npc.width / 2) + (float)((npc.width / 2 + 16) * npc.direction)) / 16f);
+                int yPos = (int)((npc.position.Y + (float)npc.height - 15f) / 16f);
+                if (Main.tile[xPos, yPos] == null)
                 {
-                    flag5 = false;
+                    Main.tile[xPos, yPos] = new Tile();
                 }
-                if (npc.justHit)
+                if (Main.tile[xPos, yPos - 1] == null)
                 {
-                    flag5 = false;
+                    Main.tile[xPos, yPos - 1] = new Tile();
                 }
-                int num210 = (int)((npc.position.X + (float)(npc.width / 2) + (float)(15 * npc.direction)) / 16f);
-                int num211 = (int)((npc.position.Y + (float)npc.height - 15f) / 16f);
-                //num210 = (int)((npc.position.X + (float)(npc.width / 2) + (float)((npc.width / 2 + 16) * npc.direction)) / 16f);
-                if (Main.tile[num210, num211] == null)
+                if (Main.tile[xPos, yPos - 2] == null)
                 {
-                    Main.tile[num210, num211] = new Tile();
+                    Main.tile[xPos, yPos - 2] = new Tile();
                 }
-                if (Main.tile[num210, num211 - 1] == null)
+                if (Main.tile[xPos, yPos - 3] == null)
                 {
-                    Main.tile[num210, num211 - 1] = new Tile();
+                    Main.tile[xPos, yPos - 3] = new Tile();
                 }
-                if (Main.tile[num210, num211 - 2] == null)
+                if (Main.tile[xPos, yPos + 1] == null)
                 {
-                    Main.tile[num210, num211 - 2] = new Tile();
+                    Main.tile[xPos, yPos + 1] = new Tile();
                 }
-                if (Main.tile[num210, num211 - 3] == null)
+                if (Main.tile[xPos + npc.direction, yPos - 1] == null)
                 {
-                    Main.tile[num210, num211 - 3] = new Tile();
+                    Main.tile[xPos + npc.direction, yPos - 1] = new Tile();
                 }
-                if (Main.tile[num210, num211 + 1] == null)
+                if (Main.tile[xPos + npc.direction, yPos + 1] == null)
                 {
-                    Main.tile[num210, num211 + 1] = new Tile();
+                    Main.tile[xPos + npc.direction, yPos + 1] = new Tile();
                 }
-                if (Main.tile[num210 + npc.direction, num211 - 1] == null)
+                if (Main.tile[xPos - npc.direction, yPos + 1] == null)
                 {
-                    Main.tile[num210 + npc.direction, num211 - 1] = new Tile();
+                    Main.tile[xPos - npc.direction, yPos + 1] = new Tile();
                 }
-                if (Main.tile[num210 + npc.direction, num211 + 1] == null)
+                if ((npc.velocity.X < 0f && npc.spriteDirection == -1) || (npc.velocity.X > 0f && npc.spriteDirection == 1))
                 {
-                    Main.tile[num210 + npc.direction, num211 + 1] = new Tile();
-                }
-                if (Main.tile[num210 - npc.direction, num211 + 1] == null)
-                {
-                    Main.tile[num210 - npc.direction, num211 + 1] = new Tile();
-                }
-                Main.tile[num210, num211 + 1].halfBrick();
-                if (Main.tile[num210, num211 - 1].nactive() && (Main.tile[num210, num211 - 1].type == 10 || Main.tile[num210, num211 - 1].type == 388))
-                {
-                    npc.ai[2] += 1f;
-                    npc.ai[3] = 0f;
-                    if (npc.ai[2] >= 60f)
+                    if (Main.tile[xPos, yPos - 2].nactive() && Main.tileSolid[(int)Main.tile[xPos, yPos - 2].type])
                     {
-                        npc.velocity.X = 0.5f * (float)(-(float)npc.direction);
-                        int num212 = 5;
-                        if (Main.tile[num210, num211 - 1].type == 388)
-                        {
-                            num212 = 2;
-                        }
-                        npc.ai[1] += (float)num212;
-                        npc.ai[2] = 0f;
-                    }
-                }
-                else
-                {
-                    int num213 = npc.spriteDirection;
-                    if ((npc.velocity.X < 0f && num213 == -1) || (npc.velocity.X > 0f && num213 == 1))
-                    {
-                        if (npc.height >= 32 && Main.tile[num210, num211 - 2].nactive() && Main.tileSolid[(int)Main.tile[num210, num211 - 2].type])
-                        {
-                            if (Main.tile[num210, num211 - 3].nactive() && Main.tileSolid[(int)Main.tile[num210, num211 - 3].type])
-                            {
-                                npc.velocity.Y = -8f;
-                                npc.netUpdate = true;
-                            }
-                            else
-                            {
-                                npc.velocity.Y = -7f;
-                                npc.netUpdate = true;
-                            }
-                        }
-                        else if (Main.tile[num210, num211 - 1].nactive() && Main.tileSolid[(int)Main.tile[num210, num211 - 1].type])
-                        {
-                            npc.velocity.Y = -6f;
-                            npc.netUpdate = true;
-                        }
-                        else if (npc.position.Y + (float)npc.height - (float)(num211 * 16) > 20f && Main.tile[num210, num211].nactive() && !Main.tile[num210, num211].topSlope() && Main.tileSolid[(int)Main.tile[num210, num211].type])
-                        {
-                            npc.velocity.Y = -5f;
-                            npc.netUpdate = true;
-                        }
-                        else if (npc.directionY < 0 && npc.type != 67 && (!Main.tile[num210, num211 + 1].nactive() || !Main.tileSolid[(int)Main.tile[num210, num211 + 1].type]) && (!Main.tile[num210 + npc.direction, num211 + 1].nactive() || !Main.tileSolid[(int)Main.tile[num210 + npc.direction, num211 + 1].type]))
+                        if (Main.tile[xPos, yPos - 3].nactive() && Main.tileSolid[(int)Main.tile[xPos, yPos - 3].type])
                         {
                             npc.velocity.Y = -8f;
-                            npc.velocity.X = npc.velocity.X * 1.5f;
+                            npc.netUpdate = true;
+                        }
+                        else
+                        {
+                            npc.velocity.Y = -7f;
                             npc.netUpdate = true;
                         }
                     }
-                    if (npc.velocity.Y == 0f && Math.Abs(npc.position.X + (float)(npc.width / 2) - (Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2))) < 100f && Math.Abs(npc.position.Y + (float)(npc.height / 2) - (Main.player[npc.target].position.Y + (float)(Main.player[npc.target].height / 2))) < 50f && ((npc.direction > 0 && npc.velocity.X >= 1f) || (npc.direction < 0 && npc.velocity.X <= -1f)))
+                    /*
+                    if (Main.tile[xPos, yPos - 2].nactive() && Main.tileSolid[(int)Main.tile[xPos, yPos - 2].type])
                     {
-                        npc.velocity.X = npc.velocity.X * 2f;
-                        if (npc.velocity.X > 3f)
+                        if (Main.tile[xPos, yPos - 3].nactive() && Main.tileSolid[(int)Main.tile[xPos, yPos - 3].type])
                         {
-                            npc.velocity.X = 3f;
+                            npc.velocity.Y = -8f;
+                            npc.netUpdate = true;
                         }
-                        if (npc.velocity.X < -3f)
+                        else
                         {
-                            npc.velocity.X = -3f;
+                            npc.velocity.Y = -7f;
+                            npc.netUpdate = true;
                         }
-                        npc.velocity.Y = -4f;
+                    }
+                    */
+                    /*
+                    else if (Main.tile[xPos, yPos - 1].nactive() && Main.tileSolid[(int)Main.tile[xPos, yPos - 1].type])
+                    {
+                        npc.velocity.Y = -6f;
                         npc.netUpdate = true;
                     }
+                    else if (npc.position.Y + (float)npc.height - (float)(yPos * 16) > 20f && Main.tile[xPos, yPos].nactive() && !Main.tile[xPos, yPos].topSlope() && Main.tileSolid[(int)Main.tile[xPos, yPos].type])
+                    {
+                        npc.velocity.Y = -5f;
+                        npc.netUpdate = true;
+                    }
+                    else if (npc.directionY < 0 && npc.type != 67 && (!Main.tile[xPos, yPos + 1].nactive() || !Main.tileSolid[(int)Main.tile[xPos, yPos + 1].type]) && (!Main.tile[xPos + npc.direction, yPos + 1].nactive() || !Main.tileSolid[(int)Main.tile[xPos + npc.direction, yPos + 1].type]))
+                    {
+                        npc.velocity.Y = -8f;
+                        npc.velocity.X = npc.velocity.X * 1.5f;
+                        npc.netUpdate = true;
+                    }
+                    */
                 }
+                /*
+                if (npc.velocity.Y == 0f && Math.Abs(npc.position.X + (float)(npc.width / 2) - (Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2))) < 100f && Math.Abs(npc.position.Y + (float)(npc.height / 2) - (Main.player[npc.target].position.Y + (float)(Main.player[npc.target].height / 2))) < 50f && ((npc.direction > 0 && npc.velocity.X >= 1f) || (npc.direction < 0 && npc.velocity.X <= -1f)))
+                {
+                    npc.velocity.X = npc.velocity.X * 2f;
+                    if (npc.velocity.X > 3f)
+                    {
+                        npc.velocity.X = 3f;
+                    }
+                    if (npc.velocity.X < -3f)
+                    {
+                        npc.velocity.X = -3f;
+                    }
+                    npc.velocity.Y = -4f;
+                    npc.netUpdate = true;
+                }
+                */
             }
             if (capture > 0)
             {
@@ -751,7 +740,7 @@ namespace PokeModRed.NPCs
                 }
             }
             Main.NewText("Gotcha! " +npc.name +" was caught!");
-            int itemRef = Item.NewItem((int)npc.position.X, (int)npc.position.Y, 1, 1, mod.ItemType(npc.name+"Pokeball"), 1, false, 0, false, false);
+            int itemRef = Item.NewItem((int)npc.position.X, (int)npc.position.Y, 1, 1, mod.ItemType(Name+"Pokeball"), 1, false, 0, false, false);
             PokemonWeapon newItem;
             newItem = Main.item[itemRef].modItem as PokemonWeapon;
             newItem.level = this.level;
@@ -776,20 +765,20 @@ namespace PokeModRed.NPCs
 
 		public override bool CheckDead()
 		{
-			if (set && npc.releaseOwner != 255 && Main.player[npc.releaseOwner].HasBuff(mod.BuffType(npc.name+"Buff")) > -1)
+			if (set && npc.releaseOwner != 255 && Main.player[npc.releaseOwner].HasBuff(mod.BuffType(Name+"Buff")) > -1)
 			{
 				if (Main.myPlayer == npc.releaseOwner)
 				{
 					Main.NewText(npc.name +" has fainted!");
 				}
-				Main.player[npc.releaseOwner].DelBuff(Main.player[npc.releaseOwner].HasBuff(mod.BuffType(npc.name+"Buff")));
+				Main.player[npc.releaseOwner].DelBuff(Main.player[npc.releaseOwner].HasBuff(mod.BuffType(Name+"Buff")));
 			}
 			return true;
 		}
 		
 		public override bool CheckActive()
 		{
-			if (set && npc.active && npc.releaseOwner != 255 && Main.player[npc.releaseOwner].HasBuff(mod.BuffType(npc.name+"Buff")) < 0)
+			if (set && npc.active && npc.releaseOwner != 255 && Main.player[npc.releaseOwner].HasBuff(mod.BuffType(Name+"Buff")) < 0)
 			{
 				if (Main.myPlayer == npc.releaseOwner)
 				{
