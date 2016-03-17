@@ -29,39 +29,36 @@ namespace PokeModRed
 			Pokedex.DoNothing();
             RegisterHotKey("Activate/Deactivate Pokemon Spawns", "P");
         }
-		
-		public override void ChatInput(string text)
-		{
-			if (text[0] != '/')
-			{
-				return;
-			}
-			text = text.Substring(1);
-			int index = text.IndexOf(' ');
-			string command;
-			string[] args;
-			if (index < 0)
-			{
-				command = text;
-				args = new string[0];
-			}
-			else
-			{
-				command = text.Substring(0, index);
-				args = text.Substring(index + 1).Split(' ');
-			}
-			if (command == "pokedex")
-			{
-				PokedexCommand(args);
-			}
-            /*// Not sure what your command here will do, but I am commenting it out for texting everything else for now.
+
+        public override void ChatInput(string text)
+        {
+            if (text[0] != '/')
+            {
+                return;
+            }
+            text = text.Substring(1);
+            int index = text.IndexOf(' ');
+            string command;
+            string[] args;
+            if (index < 0)
+            {
+                command = text;
+                args = new string[0];
+            }
+            else
+            {
+                command = text.Substring(0, index);
+                args = text.Substring(index + 1).Split(' ');
+            }
+            if (command == "pokedex")
+            {
+                PokedexCommand(args);
+            }
             if (command == "gift")
             {
                 GiftCommand(args);
             }
-            */
         }
-
         public override void HotKeyPressed(string name)
         {
             if (name == "Activate/Deactivate Pokemon Spawns")
