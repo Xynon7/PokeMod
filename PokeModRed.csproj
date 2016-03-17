@@ -210,6 +210,8 @@
     <Compile Include="NPCs\Sandslash.cs" />
     <Compile Include="NPCs\Spearow.cs" />
     <Compile Include="NPCs\Squirtle.cs" />
+    <Compile Include="NPCs\Trainers\GymLeaderBrockBattle.cs" />
+    <Compile Include="NPCs\Trainers\GymLeaderBrock.cs" />
     <Compile Include="NPCs\Venomoth.cs" />
     <Compile Include="NPCs\Venonat.cs" />
     <Compile Include="NPCs\Venusaur.cs" />
@@ -509,6 +511,10 @@
     <Content Include="NPCs\Sandslash.png" />
     <Content Include="NPCs\Spearow.png" />
     <Content Include="NPCs\Squirtle.png" />
+    <Content Include="NPCs\Trainers\GymLeaderBrockBattle.png" />
+    <Content Include="NPCs\Trainers\GymLeaderBrock.png" />
+    <Content Include="NPCs\Trainers\GymLeaderBrockBattle_Head_Boss.png" />
+    <Content Include="NPCs\Trainers\GymLeaderBrock_Head.png" />
     <Content Include="NPCs\Venomoth.png" />
     <Content Include="NPCs\Venonat.png" />
     <Content Include="NPCs\Venosaur.png" />
@@ -649,7 +655,6 @@
     <Folder Include=".git\" />
     <Folder Include=".vs\" />
     <Folder Include="NPCs\Pokemon\" />
-    <Folder Include="NPCs\Trainers\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
