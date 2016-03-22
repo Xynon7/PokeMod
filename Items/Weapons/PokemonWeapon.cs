@@ -261,7 +261,7 @@ namespace PokeModRed.Items.Weapons
 		{
 			PokePlayer modPlayer = (PokePlayer)player.GetModPlayer(mod, "PokePlayer");
 			// need to put a limiter on this, max 1 per item
-			if (player.HasBuff(mod.BuffType(item.name + "Buff")) < 0 && player.itemTime == 0 && player.itemAnimation > 0 && player.controlUseItem)
+			if (player.HasBuff(mod.BuffType(Name + "Buff")) < 0 && player.itemTime == 0 && player.itemAnimation > 0 && player.controlUseItem)
 			{
 				if (Main.netMode != 1)
 				{
@@ -505,9 +505,9 @@ namespace PokeModRed.Items.Weapons
 			newItem.SpDEV = this.SpDEV;
 			newItem.SpeIV = this.SpeIV;
 			newItem.SpeEV = this.SpeEV;
-			if (Main.player[item.owner].HasBuff(mod.BuffType(item.name+ "Buff")) > -1)
+			if (Main.player[item.owner].HasBuff(mod.BuffType(Name+ "Buff")) > -1)
 			{
-				Main.player[item.owner].DelBuff(Main.player[item.owner].HasBuff(mod.BuffType(item.name+ "Buff")));
+				Main.player[item.owner].DelBuff(Main.player[item.owner].HasBuff(mod.BuffType(Name+ "Buff")));
 			}
 			newItem.SetToolTip();
 			this.item.consumable = true;
